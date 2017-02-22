@@ -1,2 +1,2 @@
 # ModelingCrashCourse
-GEMOc Modeling crash course slides and material
+GEMOC Modeling crash course slides and material
