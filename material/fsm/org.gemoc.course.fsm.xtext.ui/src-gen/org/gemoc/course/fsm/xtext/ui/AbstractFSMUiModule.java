@@ -184,16 +184,6 @@ public abstract class AbstractFSMUiModule extends DefaultUiModule {
 			.to(BuilderPreferenceAccess.Initializer.class);
 	}
 	
-	// contributed by org.eclipse.xtext.xtext.generator.ui.labeling.LabelProviderFragment2
-	public Class<? extends ILabelProvider> bindILabelProvider() {
-		return FSMLabelProvider.class;
-	}
-	
-	// contributed by org.eclipse.xtext.xtext.generator.ui.labeling.LabelProviderFragment2
-	public void configureResourceUIServiceLabelProvider(Binder binder) {
-		binder.bind(ILabelProvider.class).annotatedWith(ResourceServiceDescriptionLabelProvider.class).to(FSMDescriptionLabelProvider.class);
-	}
-	
 	// contributed by org.eclipse.xtext.xtext.generator.ui.outline.OutlineTreeProviderFragment2
 	public Class<? extends IOutlineTreeProvider> bindIOutlineTreeProvider() {
 		return FSMOutlineTreeProvider.class;
@@ -275,6 +265,16 @@ public abstract class AbstractFSMUiModule extends DefaultUiModule {
 	// contributed by org.eclipse.xtext.xtext.generator.ui.compare.CompareFragment2
 	public Class<? extends IViewerCreator> bindIViewerCreator() {
 		return DefaultViewerCreator.class;
+	}
+	
+	// contributed by org.eclipse.xtext.xtext.generator.ui.labeling.LabelProviderFragment2
+	public Class<? extends ILabelProvider> bindILabelProvider() {
+		return FSMLabelProvider.class;
+	}
+	
+	// contributed by org.eclipse.xtext.xtext.generator.ui.labeling.LabelProviderFragment2
+	public void configureResourceUIServiceLabelProvider(Binder binder) {
+		binder.bind(ILabelProvider.class).annotatedWith(ResourceServiceDescriptionLabelProvider.class).to(FSMDescriptionLabelProvider.class);
 	}
 	
 }

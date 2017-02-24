@@ -4,6 +4,7 @@ package fsm.provider;
 
 
 import fsm.FsmPackage;
+import fsm.State;
 import fsm.Transition;
 
 import java.util.Collection;
@@ -171,14 +172,21 @@ public class TransitionItemProvider
 	 * This returns the label text for the adapted class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = ((Transition)object).getName();
-		return label == null || label.length() == 0 ?
-			getString("_UI_Transition_type") :
-			getString("_UI_Transition_type") + " " + label;
+		Transition t = ((Transition)object);
+		String name = t.getName();
+		String label = name == null || name.length() == 0 ? " "+name : "";
+		State target = t.getTarget();
+		String targetLabel;
+		if(target != null && target.getName() != null){
+			targetLabel = " -> "+target.getName();
+		} else {
+			targetLabel ="";
+		}
+		return getString("_UI_Transition_type") + " " + label + targetLabel;
 	}
 	
 

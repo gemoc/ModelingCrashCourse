@@ -34,6 +34,8 @@ Workflow {
 			referencedResource = "platform:/resource/org.gemoc.course.fsm.model/model/fsm.genmodel"
 			
 			fragment = ecore2xtext.Ecore2XtextValueConverterServiceFragment2 auto-inject {}
+			
+			fragment = ui.labeling.LabelProviderFragment2  auto-inject {}
 
 			fragment = org.eclipse.xtext.generator.adapter.FragmentAdapter {
 				fragment = org.eclipse.xtext.generator.ecore2xtext.FormatterFragment {}
