@@ -22,4 +22,6 @@ class FSMGenerator extends AbstractGenerator {
 //				.map[name]
 //				.join(', '))
 	}
+	
+	
 }

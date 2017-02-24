@@ -11,15 +11,12 @@ FiniteStateMachine returns FiniteStateMachine:
 		( states+=State ( states+=State)*  )? &
 	'}';
 
-
-
 State returns State:
 	{State}
 	(isInitialState?='initial')? 'state'
 	name=EString
 	('{' outgoingTransitions+=Transition (  outgoingTransitions+=Transition)* '}')?
 	;
-
 
 Transition returns Transition:
 	'->' target=[State|EString]
