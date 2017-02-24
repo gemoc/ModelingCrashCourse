@@ -1,6 +1,46 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<description:Group xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:description="http://www.eclipse.org/sirius/description/1.1.0" name="fsm" version="11.1.1.201610211630">
-  <ownedViewpoints name="MyViewpoint">
+<description:Group xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:description="http://www.eclipse.org/sirius/description/1.1.0" xmlns:description_1="http://www.eclipse.org/sirius/diagram/description/1.1.0" xmlns:style="http://www.eclipse.org/sirius/diagram/description/style/1.1.0" xmlns:tool="http://www.eclipse.org/sirius/diagram/description/tool/1.1.0" xmlns:tool_1="http://www.eclipse.org/sirius/description/tool/1.1.0" name="fsm" version="11.1.1.201610211630">
+  <ownedViewpoints name="FSMCrashCourseViewpoint" modelFileExtension="xmi fsm">
+    <ownedRepresentations xsi:type="description_1:DiagramDescription" name="FSMCrashCourse" domainClass="fsm.FiniteStateMachine" enablePopupBars="true">
+      <metamodel href="../../org.gemoc.course.fsm.model/model/fsm.ecore#/"/>
+      <defaultLayer name="Default">
+        <edgeMappings name="TransitionEdge" sourceMapping="//@ownedViewpoints[name='FSMCrashCourseViewpoint']/@ownedRepresentations[name='FSMCrashCourse']/@defaultLayer/@containerMappings[name='StateNode']" targetMapping="//@ownedViewpoints[name='FSMCrashCourseViewpoint']/@ownedRepresentations[name='FSMCrashCourse']/@defaultLayer/@containerMappings[name='StateNode']" targetFinderExpression="[self.target/]" sourceFinderExpression="[self.eContainer(State)/]" domainClass="fsm.Transition" useDomainElement="true">
+          <style sizeComputationExpression="2">
+            <strokeColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='gray']"/>
+            <centerLabelStyleDescription showIcon="false" labelExpression="feature:name">
+              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            </centerLabelStyleDescription>
+          </style>
+        </edgeMappings>
+        <containerMappings name="StateNode" semanticCandidatesExpression="[self.states/]" domainClass="fsm.State">
+          <style xsi:type="style:FlatContainerStyleDescription" arcWidth="50" arcHeight="50" borderSizeComputationExpression="1" roundedCorner="true">
+            <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
+            <foregroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_gray']"/>
+          </style>
+          <conditionnalStyles predicateExpression="[ thisEObject.isInitialState/]">
+            <style xsi:type="style:FlatContainerStyleDescription" arcWidth="50" arcHeight="50" borderSizeComputationExpression="3" roundedCorner="true">
+              <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
+              <foregroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_green']"/>
+            </style>
+          </conditionnalStyles>
+        </containerMappings>
+        <toolSections name="Edition">
+          <ownedTools xsi:type="tool:ContainerCreationDescription" name="StateCreation" label="Create State" containerMappings="//@ownedViewpoints[name='FSMCrashCourseViewpoint']/@ownedRepresentations[name='FSMCrashCourse']/@defaultLayer/@containerMappings[name='StateNode']">
+            <variable name="container"/>
+            <viewVariable name="containerView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:CreateInstance" typeName="State" referenceName="states" variableName="stateInstance">
+                <subModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="stateInstance"/>
+              </firstModelOperations>
+            </initialOperation>
+          </ownedTools>
+        </toolSections>
+      </defaultLayer>
+    </ownedRepresentations>
     <ownedJavaExtensions qualifiedClassName="org.gemoc.course.fsm.design.Services"/>
   </ownedViewpoints>
 </description:Group>

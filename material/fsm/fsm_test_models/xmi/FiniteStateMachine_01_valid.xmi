@@ -1,40 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<fsm:FiniteStateMachine
-    xmi:version="2.0"
-    xmlns:xmi="http://www.omg.org/XMI"
-    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-    xmlns:fsm="http://www.gemoc.org/course/fsm"
-    xsi:schemaLocation="http://www.gemoc.org/course/fsm ../../org.gemoc.course.fsm.model/model/fsm.ecore"
-    name="myFSM">
-  <states name="S1">
-    <outgoingTransitions
-        target="//@states.1"
-        name="toS2"
-        input="a"
-        output="a"/>
-    <outgoingTransitions
-        target="//@states.2"
-        name="toS3"
-        input="b"
-        output="b"/>
+<fsm:FiniteStateMachine xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:fsm="http://www.gemoc.org/course/fsm" xsi:schemaLocation="http://www.gemoc.org/course/fsm ../../org.gemoc.course.fsm.model/model/fsm.ecore" name="myFSM">
+  <states name="S1" isInitialState="true">
+    <outgoingTransitions target="//@states.1" name="toS2" input="a" output="a"/>
+    <outgoingTransitions target="//@states.2" name="toS3" input="b" output="b"/>
   </states>
   <states name="S2">
-    <outgoingTransitions
-        target="//@states.0"
-        name="toS1"
-        input="a"
-        output="a"/>
-    <outgoingTransitions
-        target="//@states.2"
-        name="toS3"
-        input="b"
-        output="b"/>
+    <outgoingTransitions target="//@states.0" name="toS1" input="a" output="a"/>
+    <outgoingTransitions target="//@states.2" name="toS3" input="b" output="b"/>
   </states>
   <states name="S3">
-    <outgoingTransitions
-        target="//@states.0"
-        name="toS1"
-        input="a"
-        output="a"/>
+    <outgoingTransitions target="//@states.0" name="toS1" input="a" output="a"/>
   </states>
 </fsm:FiniteStateMachine>
