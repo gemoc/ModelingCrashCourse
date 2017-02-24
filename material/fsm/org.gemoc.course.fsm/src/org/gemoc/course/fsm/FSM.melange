@@ -1,0 +1,10 @@
+package org.gemoc.course.fsm
+
+external language FSM {
+	syntax "platform:/resource/org.gemoc.course.fsm.model/model/fsm.ecore"
+}
+language XFSM inherits FSM{
+	with fsm.aspects.FiniteStateMachineAspect
+	with fsm.aspects.TransitionAspect
+	with fsm.aspects.StateAspect
+}
