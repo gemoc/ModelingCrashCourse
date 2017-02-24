@@ -5,7 +5,6 @@
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xmlns:fsm="http://www.gemoc.org/course/fsm"
     xsi:schemaLocation="http://www.gemoc.org/course/fsm ../../org.gemoc.course.fsm.model/model/fsm.ecore"
-    initialState="//@states.0"
     name="myFSM">
   <states name="S1">
     <outgoingTransitions

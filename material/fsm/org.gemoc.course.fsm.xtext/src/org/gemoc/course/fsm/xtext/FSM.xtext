@@ -8,28 +8,25 @@ FiniteStateMachine returns FiniteStateMachine:
 	'FiniteStateMachine'
 	name=EString
 	'{'
-		'initialState' initialState=[State|EString]
-		('states' '{' states+=State ( "," states+=State)* '}' )?
+		( states+=State ( states+=State)*  )? &
 	'}';
 
 
 
 State returns State:
 	{State}
-	'State'
+	(isInitialState?='initial')? 'state'
 	name=EString
-	'{'
-		('outgoingTransitions' '{' outgoingTransitions+=Transition ( "," outgoingTransitions+=Transition)* '}' )?
-	'}';
+	('{' outgoingTransitions+=Transition (  outgoingTransitions+=Transition)* '}')?
+	;
+
+
+Transition returns Transition:
+	'->' target=[State|EString]
+	'['
+		input=EString
+		('|' output=EString)?
+	']' ':' name=EString;
 
 EString returns ecore::EString:
 	STRING | ID;
-
-Transition returns Transition:
-	'Transition'
-	name=EString
-	'{'
-		('input' input=EString)?
-		('output' output=EString)?
-		'target' target=[State|EString]
-	'}';

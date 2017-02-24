@@ -20,7 +20,8 @@ import org.eclipse.emf.ecore.EObject;
  * </ul>
  *
  * @see fsm.FsmPackage#getTransition()
- * @model
+ * @model annotation="http://www.eclipse.org/emf/2002/Ecore constraints='deterministicTransition'"
+ *        annotation="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot deterministicTransition='\n\t\t\tself.oclContainer.oclAsType(State).outgoingTransitions\n\t\t\t\t->forAll(t| t <> self implies t.input <> self.input)'"
  * @generated
  */
 public interface Transition extends EObject {

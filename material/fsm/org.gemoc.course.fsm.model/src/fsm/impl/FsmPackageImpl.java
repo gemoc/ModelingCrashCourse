@@ -139,17 +139,8 @@ public class FsmPackageImpl extends EPackageImpl implements FsmPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getFiniteStateMachine_InitialState() {
-		return (EReference)finiteStateMachineEClass.getEStructuralFeatures().get(1);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EAttribute getFiniteStateMachine_Name() {
-		return (EAttribute)finiteStateMachineEClass.getEStructuralFeatures().get(2);
+		return (EAttribute)finiteStateMachineEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -177,6 +168,15 @@ public class FsmPackageImpl extends EPackageImpl implements FsmPackage {
 	 */
 	public EAttribute getState_Name() {
 		return (EAttribute)stateEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getState_IsInitialState() {
+		return (EAttribute)stateEClass.getEStructuralFeatures().get(2);
 	}
 
 	/**
@@ -254,12 +254,12 @@ public class FsmPackageImpl extends EPackageImpl implements FsmPackage {
 		// Create classes and their features
 		finiteStateMachineEClass = createEClass(FINITE_STATE_MACHINE);
 		createEReference(finiteStateMachineEClass, FINITE_STATE_MACHINE__STATES);
-		createEReference(finiteStateMachineEClass, FINITE_STATE_MACHINE__INITIAL_STATE);
 		createEAttribute(finiteStateMachineEClass, FINITE_STATE_MACHINE__NAME);
 
 		stateEClass = createEClass(STATE);
 		createEReference(stateEClass, STATE__OUTGOING_TRANSITIONS);
 		createEAttribute(stateEClass, STATE__NAME);
+		createEAttribute(stateEClass, STATE__IS_INITIAL_STATE);
 
 		transitionEClass = createEClass(TRANSITION);
 		createEReference(transitionEClass, TRANSITION__TARGET);
@@ -300,12 +300,12 @@ public class FsmPackageImpl extends EPackageImpl implements FsmPackage {
 		// Initialize classes, features, and operations; add parameters
 		initEClass(finiteStateMachineEClass, FiniteStateMachine.class, "FiniteStateMachine", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getFiniteStateMachine_States(), this.getState(), null, "states", null, 0, -1, FiniteStateMachine.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getFiniteStateMachine_InitialState(), this.getState(), null, "initialState", null, 1, 1, FiniteStateMachine.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getFiniteStateMachine_Name(), ecorePackage.getEString(), "name", null, 0, 1, FiniteStateMachine.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(stateEClass, State.class, "State", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getState_OutgoingTransitions(), this.getTransition(), null, "outgoingTransitions", null, 0, -1, State.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getState_Name(), ecorePackage.getEString(), "name", null, 0, 1, State.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getState_IsInitialState(), ecorePackage.getEBoolean(), "isInitialState", "false", 1, 1, State.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(transitionEClass, Transition.class, "Transition", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getTransition_Target(), this.getState(), null, "target", null, 1, 1, Transition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -350,6 +350,12 @@ public class FsmPackageImpl extends EPackageImpl implements FsmPackage {
 		   source, 
 		   new String[] {
 			 "constraints", "uniqueStateNameInFSM"
+		   });	
+		addAnnotation
+		  (transitionEClass, 
+		   source, 
+		   new String[] {
+			 "constraints", "deterministicTransition"
 		   });
 	}
 
@@ -371,7 +377,13 @@ public class FsmPackageImpl extends EPackageImpl implements FsmPackage {
 		  (stateEClass, 
 		   source, 
 		   new String[] {
-			 "uniqueStateNameInFSM", "self.oclContainer.oclAsType(FiniteStateMachine).states->forAll(s1| s1 <> self implies s1.name <> self.name)"
+			 "uniqueStateNameInFSM", "\n\t\t\tself.oclContainer.oclAsType(FiniteStateMachine).states\n\t\t\t\t->forAll(s1| s1 <> self implies s1.name <> self.name)"
+		   });	
+		addAnnotation
+		  (transitionEClass, 
+		   source, 
+		   new String[] {
+			 "deterministicTransition", "\n\t\t\tself.oclContainer.oclAsType(State).outgoingTransitions\n\t\t\t\t->forAll(t| t <> self implies t.input <> self.input)"
 		   });
 	}
 

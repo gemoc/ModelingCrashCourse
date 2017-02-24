@@ -16,7 +16,6 @@ import org.eclipse.emf.ecore.EObject;
  * </p>
  * <ul>
  *   <li>{@link fsm.FiniteStateMachine#getStates <em>States</em>}</li>
- *   <li>{@link fsm.FiniteStateMachine#getInitialState <em>Initial State</em>}</li>
  *   <li>{@link fsm.FiniteStateMachine#getName <em>Name</em>}</li>
  * </ul>
  *
@@ -41,32 +40,6 @@ public interface FiniteStateMachine extends EObject {
 	 * @generated
 	 */
 	EList<State> getStates();
-
-	/**
-	 * Returns the value of the '<em><b>Initial State</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Initial State</em>' reference isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Initial State</em>' reference.
-	 * @see #setInitialState(State)
-	 * @see fsm.FsmPackage#getFiniteStateMachine_InitialState()
-	 * @model required="true"
-	 * @generated
-	 */
-	State getInitialState();
-
-	/**
-	 * Sets the value of the '{@link fsm.FiniteStateMachine#getInitialState <em>Initial State</em>}' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Initial State</em>' reference.
-	 * @see #getInitialState()
-	 * @generated
-	 */
-	void setInitialState(State value);
 
 	/**
 	 * Returns the value of the '<em><b>Name</b></em>' attribute.

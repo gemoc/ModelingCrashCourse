@@ -32,6 +32,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * <ul>
  *   <li>{@link fsm.impl.StateImpl#getOutgoingTransitions <em>Outgoing Transitions</em>}</li>
  *   <li>{@link fsm.impl.StateImpl#getName <em>Name</em>}</li>
+ *   <li>{@link fsm.impl.StateImpl#isIsInitialState <em>Is Initial State</em>}</li>
  * </ul>
  *
  * @generated
@@ -66,6 +67,26 @@ public class StateImpl extends MinimalEObjectImpl.Container implements State {
 	 * @ordered
 	 */
 	protected String name = NAME_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #isIsInitialState() <em>Is Initial State</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isIsInitialState()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final boolean IS_INITIAL_STATE_EDEFAULT = false;
+
+	/**
+	 * The cached value of the '{@link #isIsInitialState() <em>Is Initial State</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isIsInitialState()
+	 * @generated
+	 * @ordered
+	 */
+	protected boolean isInitialState = IS_INITIAL_STATE_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -124,6 +145,27 @@ public class StateImpl extends MinimalEObjectImpl.Container implements State {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public boolean isIsInitialState() {
+		return isInitialState;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setIsInitialState(boolean newIsInitialState) {
+		boolean oldIsInitialState = isInitialState;
+		isInitialState = newIsInitialState;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, FsmPackage.STATE__IS_INITIAL_STATE, oldIsInitialState, isInitialState));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
@@ -145,6 +187,8 @@ public class StateImpl extends MinimalEObjectImpl.Container implements State {
 				return getOutgoingTransitions();
 			case FsmPackage.STATE__NAME:
 				return getName();
+			case FsmPackage.STATE__IS_INITIAL_STATE:
+				return isIsInitialState();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -165,6 +209,9 @@ public class StateImpl extends MinimalEObjectImpl.Container implements State {
 			case FsmPackage.STATE__NAME:
 				setName((String)newValue);
 				return;
+			case FsmPackage.STATE__IS_INITIAL_STATE:
+				setIsInitialState((Boolean)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -183,6 +230,9 @@ public class StateImpl extends MinimalEObjectImpl.Container implements State {
 			case FsmPackage.STATE__NAME:
 				setName(NAME_EDEFAULT);
 				return;
+			case FsmPackage.STATE__IS_INITIAL_STATE:
+				setIsInitialState(IS_INITIAL_STATE_EDEFAULT);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -199,6 +249,8 @@ public class StateImpl extends MinimalEObjectImpl.Container implements State {
 				return outgoingTransitions != null && !outgoingTransitions.isEmpty();
 			case FsmPackage.STATE__NAME:
 				return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
+			case FsmPackage.STATE__IS_INITIAL_STATE:
+				return isInitialState != IS_INITIAL_STATE_EDEFAULT;
 		}
 		return super.eIsSet(featureID);
 	}
@@ -215,6 +267,8 @@ public class StateImpl extends MinimalEObjectImpl.Container implements State {
 		StringBuffer result = new StringBuffer(super.toString());
 		result.append(" (name: ");
 		result.append(name);
+		result.append(", isInitialState: ");
+		result.append(isInitialState);
 		result.append(')');
 		return result.toString();
 	}

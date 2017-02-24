@@ -170,7 +170,9 @@ public class FsmValidator extends EObjectValidator {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected static final String STATE__UNIQUE_STATE_NAME_IN_FSM__EEXPRESSION = "self.oclContainer.oclAsType(FiniteStateMachine).states->forAll(s1| s1 <> self implies s1.name <> self.name)";
+	protected static final String STATE__UNIQUE_STATE_NAME_IN_FSM__EEXPRESSION = "\n" +
+		"\t\t\tself.oclContainer.oclAsType(FiniteStateMachine).states\n" +
+		"\t\t\t\t->forAll(s1| s1 <> self implies s1.name <> self.name)";
 
 	/**
 	 * Validates the uniqueStateNameInFSM constraint of '<em>State</em>'.
@@ -199,7 +201,48 @@ public class FsmValidator extends EObjectValidator {
 	 * @generated
 	 */
 	public boolean validateTransition(Transition transition, DiagnosticChain diagnostics, Map<Object, Object> context) {
-		return validate_EveryDefaultConstraint(transition, diagnostics, context);
+		if (!validate_NoCircularContainment(transition, diagnostics, context)) return false;
+		boolean result = validate_EveryMultiplicityConforms(transition, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryDataValueConforms(transition, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryReferenceIsContained(transition, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryBidirectionalReferenceIsPaired(transition, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryProxyResolves(transition, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_UniqueID(transition, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryKeyUnique(transition, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryMapEntryUnique(transition, diagnostics, context);
+		if (result || diagnostics != null) result &= validateTransition_deterministicTransition(transition, diagnostics, context);
+		return result;
+	}
+
+	/**
+	 * The cached validation expression for the deterministicTransition constraint of '<em>Transition</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected static final String TRANSITION__DETERMINISTIC_TRANSITION__EEXPRESSION = "\n" +
+		"\t\t\tself.oclContainer.oclAsType(State).outgoingTransitions\n" +
+		"\t\t\t\t->forAll(t| t <> self implies t.input <> self.input)";
+
+	/**
+	 * Validates the deterministicTransition constraint of '<em>Transition</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean validateTransition_deterministicTransition(Transition transition, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		return
+			validate
+				(FsmPackage.Literals.TRANSITION,
+				 transition,
+				 diagnostics,
+				 context,
+				 "http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot",
+				 "deterministicTransition",
+				 TRANSITION__DETERMINISTIC_TRANSITION__EEXPRESSION,
+				 Diagnostic.ERROR,
+				 DIAGNOSTIC_SOURCE,
+				 0);
 	}
 
 	/**

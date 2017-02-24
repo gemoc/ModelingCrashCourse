@@ -10,6 +10,8 @@ import org.eclipse.xtext.IGrammarAccess;
 import org.eclipse.xtext.RuleCall;
 import org.eclipse.xtext.nodemodel.INode;
 import org.eclipse.xtext.serializer.analysis.GrammarAlias.AbstractElementAlias;
+import org.eclipse.xtext.serializer.analysis.GrammarAlias.TokenAlias;
+import org.eclipse.xtext.serializer.analysis.ISyntacticSequencerPDAProvider.ISynNavigable;
 import org.eclipse.xtext.serializer.analysis.ISyntacticSequencerPDAProvider.ISynTransition;
 import org.eclipse.xtext.serializer.sequencer.AbstractSyntacticSequencer;
 import org.gemoc.course.fsm.xtext.services.FSMGrammarAccess;
@@ -18,10 +20,14 @@ import org.gemoc.course.fsm.xtext.services.FSMGrammarAccess;
 public class FSMSyntacticSequencer extends AbstractSyntacticSequencer {
 
 	protected FSMGrammarAccess grammarAccess;
+	protected AbstractElementAlias match_FiniteStateMachine_RightCurlyBracketKeyword_1_a;
+	protected AbstractElementAlias match_FiniteStateMachine_RightCurlyBracketKeyword_1_p;
 	
 	@Inject
 	protected void init(IGrammarAccess access) {
 		grammarAccess = (FSMGrammarAccess) access;
+		match_FiniteStateMachine_RightCurlyBracketKeyword_1_a = new TokenAlias(true, true, grammarAccess.getFiniteStateMachineAccess().getRightCurlyBracketKeyword_1());
+		match_FiniteStateMachine_RightCurlyBracketKeyword_1_p = new TokenAlias(true, false, grammarAccess.getFiniteStateMachineAccess().getRightCurlyBracketKeyword_1());
 	}
 	
 	@Override
@@ -36,8 +42,38 @@ public class FSMSyntacticSequencer extends AbstractSyntacticSequencer {
 		List<INode> transitionNodes = collectNodes(fromNode, toNode);
 		for (AbstractElementAlias syntax : transition.getAmbiguousSyntaxes()) {
 			List<INode> syntaxNodes = getNodesFor(transitionNodes, syntax);
-			acceptNodes(getLastNavigableState(), syntaxNodes);
+			if (match_FiniteStateMachine_RightCurlyBracketKeyword_1_a.equals(syntax))
+				emit_FiniteStateMachine_RightCurlyBracketKeyword_1_a(semanticObject, getLastNavigableState(), syntaxNodes);
+			else if (match_FiniteStateMachine_RightCurlyBracketKeyword_1_p.equals(syntax))
+				emit_FiniteStateMachine_RightCurlyBracketKeyword_1_p(semanticObject, getLastNavigableState(), syntaxNodes);
+			else acceptNodes(getLastNavigableState(), syntaxNodes);
 		}
 	}
 
+	/**
+	 * Ambiguous syntax:
+	 *     '}'*
+	 *
+	 * This ambiguous syntax occurs at:
+	 *     (rule start) (ambiguity) 'FiniteStateMachine' name=EString
+	 *     name=EString '{' (ambiguity) 'FiniteStateMachine' name=EString
+	 *     name=EString '{' (ambiguity) (rule end)
+	 *     states+=State (ambiguity) 'FiniteStateMachine' name=EString
+	 *     states+=State (ambiguity) (rule end)
+	 */
+	protected void emit_FiniteStateMachine_RightCurlyBracketKeyword_1_a(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
+		acceptNodes(transition, nodes);
+	}
+	
+	/**
+	 * Ambiguous syntax:
+	 *     '}'+
+	 *
+	 * This ambiguous syntax occurs at:
+	 *     (rule start) (ambiguity) (rule start)
+	 */
+	protected void emit_FiniteStateMachine_RightCurlyBracketKeyword_1_p(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
+		acceptNodes(transition, nodes);
+	}
+	
 }

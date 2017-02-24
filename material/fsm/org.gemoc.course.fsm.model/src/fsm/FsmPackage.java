@@ -77,22 +77,13 @@ public interface FsmPackage extends EPackage {
 	int FINITE_STATE_MACHINE__STATES = 0;
 
 	/**
-	 * The feature id for the '<em><b>Initial State</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int FINITE_STATE_MACHINE__INITIAL_STATE = 1;
-
-	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int FINITE_STATE_MACHINE__NAME = 2;
+	int FINITE_STATE_MACHINE__NAME = 1;
 
 	/**
 	 * The number of structural features of the '<em>Finite State Machine</em>' class.
@@ -101,7 +92,7 @@ public interface FsmPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int FINITE_STATE_MACHINE_FEATURE_COUNT = 3;
+	int FINITE_STATE_MACHINE_FEATURE_COUNT = 2;
 
 	/**
 	 * The number of operations of the '<em>Finite State Machine</em>' class.
@@ -141,13 +132,22 @@ public interface FsmPackage extends EPackage {
 	int STATE__NAME = 1;
 
 	/**
+	 * The feature id for the '<em><b>Is Initial State</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int STATE__IS_INITIAL_STATE = 2;
+
+	/**
 	 * The number of structural features of the '<em>State</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int STATE_FEATURE_COUNT = 2;
+	int STATE_FEATURE_COUNT = 3;
 
 	/**
 	 * The number of operations of the '<em>State</em>' class.
@@ -245,17 +245,6 @@ public interface FsmPackage extends EPackage {
 	EReference getFiniteStateMachine_States();
 
 	/**
-	 * Returns the meta object for the reference '{@link fsm.FiniteStateMachine#getInitialState <em>Initial State</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Initial State</em>'.
-	 * @see fsm.FiniteStateMachine#getInitialState()
-	 * @see #getFiniteStateMachine()
-	 * @generated
-	 */
-	EReference getFiniteStateMachine_InitialState();
-
-	/**
 	 * Returns the meta object for the attribute '{@link fsm.FiniteStateMachine#getName <em>Name</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -297,6 +286,17 @@ public interface FsmPackage extends EPackage {
 	 * @generated
 	 */
 	EAttribute getState_Name();
+
+	/**
+	 * Returns the meta object for the attribute '{@link fsm.State#isIsInitialState <em>Is Initial State</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Is Initial State</em>'.
+	 * @see fsm.State#isIsInitialState()
+	 * @see #getState()
+	 * @generated
+	 */
+	EAttribute getState_IsInitialState();
 
 	/**
 	 * Returns the meta object for class '{@link fsm.Transition <em>Transition</em>}'.
@@ -394,14 +394,6 @@ public interface FsmPackage extends EPackage {
 		EReference FINITE_STATE_MACHINE__STATES = eINSTANCE.getFiniteStateMachine_States();
 
 		/**
-		 * The meta object literal for the '<em><b>Initial State</b></em>' reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference FINITE_STATE_MACHINE__INITIAL_STATE = eINSTANCE.getFiniteStateMachine_InitialState();
-
-		/**
 		 * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -434,6 +426,14 @@ public interface FsmPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute STATE__NAME = eINSTANCE.getState_Name();
+
+		/**
+		 * The meta object literal for the '<em><b>Is Initial State</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute STATE__IS_INITIAL_STATE = eINSTANCE.getState_IsInitialState();
 
 		/**
 		 * The meta object literal for the '{@link fsm.impl.TransitionImpl <em>Transition</em>}' class.

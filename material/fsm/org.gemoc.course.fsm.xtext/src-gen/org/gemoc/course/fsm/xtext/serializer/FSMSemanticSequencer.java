@@ -51,7 +51,7 @@ public class FSMSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 *     FiniteStateMachine returns FiniteStateMachine
 	 *
 	 * Constraint:
-	 *     (name=EString initialState=[State|EString] (states+=State states+=State*)?)
+	 *     (name=EString (states+=State states+=State*)?)*
 	 */
 	protected void sequence_FiniteStateMachine(ISerializationContext context, FiniteStateMachine semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -63,7 +63,7 @@ public class FSMSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 *     State returns State
 	 *
 	 * Constraint:
-	 *     (name=EString (outgoingTransitions+=Transition outgoingTransitions+=Transition*)?)
+	 *     (isInitialState?='initial'? name=EString (outgoingTransitions+=Transition outgoingTransitions+=Transition*)?)
 	 */
 	protected void sequence_State(ISerializationContext context, State semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -75,7 +75,7 @@ public class FSMSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 *     Transition returns Transition
 	 *
 	 * Constraint:
-	 *     (name=EString input=EString? output=EString? target=[State|EString])
+	 *     (target=[State|EString] input=EString output=EString? name=EString)
 	 */
 	protected void sequence_Transition(ISerializationContext context, Transition semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);

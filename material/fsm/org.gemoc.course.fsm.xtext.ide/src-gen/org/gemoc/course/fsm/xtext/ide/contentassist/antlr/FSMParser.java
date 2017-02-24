@@ -36,26 +36,24 @@ public class FSMParser extends AbstractContentAssistParser {
 				private static final long serialVersionUID = 1L;
 				{
 					put(grammarAccess.getEStringAccess().getAlternatives(), "rule__EString__Alternatives");
-					put(grammarAccess.getFiniteStateMachineAccess().getGroup(), "rule__FiniteStateMachine__Group__0");
-					put(grammarAccess.getFiniteStateMachineAccess().getGroup_5(), "rule__FiniteStateMachine__Group_5__0");
-					put(grammarAccess.getFiniteStateMachineAccess().getGroup_5_3(), "rule__FiniteStateMachine__Group_5_3__0");
+					put(grammarAccess.getFiniteStateMachineAccess().getGroup_0(), "rule__FiniteStateMachine__Group_0__0");
+					put(grammarAccess.getFiniteStateMachineAccess().getGroup_0_3(), "rule__FiniteStateMachine__Group_0_3__0");
 					put(grammarAccess.getStateAccess().getGroup(), "rule__State__Group__0");
 					put(grammarAccess.getStateAccess().getGroup_4(), "rule__State__Group_4__0");
-					put(grammarAccess.getStateAccess().getGroup_4_3(), "rule__State__Group_4_3__0");
 					put(grammarAccess.getTransitionAccess().getGroup(), "rule__Transition__Group__0");
-					put(grammarAccess.getTransitionAccess().getGroup_3(), "rule__Transition__Group_3__0");
 					put(grammarAccess.getTransitionAccess().getGroup_4(), "rule__Transition__Group_4__0");
-					put(grammarAccess.getFiniteStateMachineAccess().getNameAssignment_1(), "rule__FiniteStateMachine__NameAssignment_1");
-					put(grammarAccess.getFiniteStateMachineAccess().getInitialStateAssignment_4(), "rule__FiniteStateMachine__InitialStateAssignment_4");
-					put(grammarAccess.getFiniteStateMachineAccess().getStatesAssignment_5_2(), "rule__FiniteStateMachine__StatesAssignment_5_2");
-					put(grammarAccess.getFiniteStateMachineAccess().getStatesAssignment_5_3_1(), "rule__FiniteStateMachine__StatesAssignment_5_3_1");
-					put(grammarAccess.getStateAccess().getNameAssignment_2(), "rule__State__NameAssignment_2");
+					put(grammarAccess.getFiniteStateMachineAccess().getNameAssignment_0_1(), "rule__FiniteStateMachine__NameAssignment_0_1");
+					put(grammarAccess.getFiniteStateMachineAccess().getStatesAssignment_0_3_0(), "rule__FiniteStateMachine__StatesAssignment_0_3_0");
+					put(grammarAccess.getFiniteStateMachineAccess().getStatesAssignment_0_3_1(), "rule__FiniteStateMachine__StatesAssignment_0_3_1");
+					put(grammarAccess.getStateAccess().getIsInitialStateAssignment_1(), "rule__State__IsInitialStateAssignment_1");
+					put(grammarAccess.getStateAccess().getNameAssignment_3(), "rule__State__NameAssignment_3");
+					put(grammarAccess.getStateAccess().getOutgoingTransitionsAssignment_4_1(), "rule__State__OutgoingTransitionsAssignment_4_1");
 					put(grammarAccess.getStateAccess().getOutgoingTransitionsAssignment_4_2(), "rule__State__OutgoingTransitionsAssignment_4_2");
-					put(grammarAccess.getStateAccess().getOutgoingTransitionsAssignment_4_3_1(), "rule__State__OutgoingTransitionsAssignment_4_3_1");
-					put(grammarAccess.getTransitionAccess().getNameAssignment_1(), "rule__Transition__NameAssignment_1");
-					put(grammarAccess.getTransitionAccess().getInputAssignment_3_1(), "rule__Transition__InputAssignment_3_1");
+					put(grammarAccess.getTransitionAccess().getTargetAssignment_1(), "rule__Transition__TargetAssignment_1");
+					put(grammarAccess.getTransitionAccess().getInputAssignment_3(), "rule__Transition__InputAssignment_3");
 					put(grammarAccess.getTransitionAccess().getOutputAssignment_4_1(), "rule__Transition__OutputAssignment_4_1");
-					put(grammarAccess.getTransitionAccess().getTargetAssignment_6(), "rule__Transition__TargetAssignment_6");
+					put(grammarAccess.getTransitionAccess().getNameAssignment_7(), "rule__Transition__NameAssignment_7");
+					put(grammarAccess.getFiniteStateMachineAccess().getUnorderedGroup(), "rule__FiniteStateMachine__UnorderedGroup");
 				}
 			};
 		}

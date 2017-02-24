@@ -1,0 +1,12 @@
+FiniteStateMachine fsm_01 {
+	initial state s1{
+		-> s2 [a | a] : s1Tos2
+		-> s3 [b | b] : s1tos3
+	}
+	state s2 {
+		-> s3 [a | a] : s2Tos3
+		-> s1 [b | b] : s2tos1
+	//	-> s1 [a|x] : duplicate
+	}
+	state s3
+} 

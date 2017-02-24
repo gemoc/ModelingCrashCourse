@@ -17,11 +17,12 @@ import org.eclipse.emf.ecore.EObject;
  * <ul>
  *   <li>{@link fsm.State#getOutgoingTransitions <em>Outgoing Transitions</em>}</li>
  *   <li>{@link fsm.State#getName <em>Name</em>}</li>
+ *   <li>{@link fsm.State#isIsInitialState <em>Is Initial State</em>}</li>
  * </ul>
  *
  * @see fsm.FsmPackage#getState()
  * @model annotation="http://www.eclipse.org/emf/2002/Ecore constraints='uniqueStateNameInFSM'"
- *        annotation="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot uniqueStateNameInFSM='self.oclContainer.oclAsType(FiniteStateMachine).states->forAll(s1| s1 <> self implies s1.name <> self.name)'"
+ *        annotation="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot uniqueStateNameInFSM='\n\t\t\tself.oclContainer.oclAsType(FiniteStateMachine).states\n\t\t\t\t->forAll(s1| s1 <> self implies s1.name <> self.name)'"
  * @generated
  */
 public interface State extends EObject {
@@ -66,5 +67,32 @@ public interface State extends EObject {
 	 * @generated
 	 */
 	void setName(String value);
+
+	/**
+	 * Returns the value of the '<em><b>Is Initial State</b></em>' attribute.
+	 * The default value is <code>"false"</code>.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Is Initial State</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Is Initial State</em>' attribute.
+	 * @see #setIsInitialState(boolean)
+	 * @see fsm.FsmPackage#getState_IsInitialState()
+	 * @model default="false" required="true"
+	 * @generated
+	 */
+	boolean isIsInitialState();
+
+	/**
+	 * Sets the value of the '{@link fsm.State#isIsInitialState <em>Is Initial State</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Is Initial State</em>' attribute.
+	 * @see #isIsInitialState()
+	 * @generated
+	 */
+	void setIsInitialState(boolean value);
 
 } // State

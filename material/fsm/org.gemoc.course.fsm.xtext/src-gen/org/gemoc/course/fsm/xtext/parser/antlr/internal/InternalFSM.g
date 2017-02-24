@@ -76,115 +76,112 @@ ruleFiniteStateMachine returns [EObject current=null]
 	leaveRule();
 }:
 	(
-		otherlv_0='FiniteStateMachine'
-		{
-			newLeafNode(otherlv_0, grammarAccess.getFiniteStateMachineAccess().getFiniteStateMachineKeyword_0());
-		}
 		(
-			(
-				{
-					newCompositeNode(grammarAccess.getFiniteStateMachineAccess().getNameEStringParserRuleCall_1_0());
-				}
-				lv_name_1_0=ruleEString
-				{
-					if ($current==null) {
-						$current = createModelElementForParent(grammarAccess.getFiniteStateMachineRule());
-					}
-					set(
-						$current,
-						"name",
-						lv_name_1_0,
-						"org.gemoc.course.fsm.xtext.FSM.EString");
-					afterParserOrEnumRuleCall();
-				}
-			)
-		)
-		otherlv_2='{'
-		{
-			newLeafNode(otherlv_2, grammarAccess.getFiniteStateMachineAccess().getLeftCurlyBracketKeyword_2());
-		}
-		otherlv_3='initialState'
-		{
-			newLeafNode(otherlv_3, grammarAccess.getFiniteStateMachineAccess().getInitialStateKeyword_3());
-		}
-		(
-			(
-				{
-					if ($current==null) {
-						$current = createModelElement(grammarAccess.getFiniteStateMachineRule());
-					}
-				}
-				{
-					newCompositeNode(grammarAccess.getFiniteStateMachineAccess().getInitialStateStateCrossReference_4_0());
-				}
-				ruleEString
-				{
-					afterParserOrEnumRuleCall();
-				}
-			)
-		)
-		(
-			otherlv_5='states'
-			{
-				newLeafNode(otherlv_5, grammarAccess.getFiniteStateMachineAccess().getStatesKeyword_5_0());
-			}
-			otherlv_6='{'
-			{
-				newLeafNode(otherlv_6, grammarAccess.getFiniteStateMachineAccess().getLeftCurlyBracketKeyword_5_1());
+			{ 
+			  getUnorderedGroupHelper().enter(grammarAccess.getFiniteStateMachineAccess().getUnorderedGroup());
 			}
 			(
 				(
-					{
-						newCompositeNode(grammarAccess.getFiniteStateMachineAccess().getStatesStateParserRuleCall_5_2_0());
-					}
-					lv_states_7_0=ruleState
-					{
-						if ($current==null) {
-							$current = createModelElementForParent(grammarAccess.getFiniteStateMachineRule());
-						}
-						add(
-							$current,
-							"states",
-							lv_states_7_0,
-							"org.gemoc.course.fsm.xtext.FSM.State");
-						afterParserOrEnumRuleCall();
-					}
-				)
-			)
-			(
-				otherlv_8=','
+		(
+			{getUnorderedGroupHelper().canSelect(grammarAccess.getFiniteStateMachineAccess().getUnorderedGroup(), 0)}?=>(
 				{
-					newLeafNode(otherlv_8, grammarAccess.getFiniteStateMachineAccess().getCommaKeyword_5_3_0());
+					getUnorderedGroupHelper().select(grammarAccess.getFiniteStateMachineAccess().getUnorderedGroup(), 0);
 				}
-				(
-					(
-						{
-							newCompositeNode(grammarAccess.getFiniteStateMachineAccess().getStatesStateParserRuleCall_5_3_1_0());
-						}
-						lv_states_9_0=ruleState
-						{
-							if ($current==null) {
-								$current = createModelElementForParent(grammarAccess.getFiniteStateMachineRule());
+							({true}?=>(otherlv_1='FiniteStateMachine'
+							{
+								newLeafNode(otherlv_1, grammarAccess.getFiniteStateMachineAccess().getFiniteStateMachineKeyword_0_0());
 							}
-							add(
-								$current,
-								"states",
-								lv_states_9_0,
-								"org.gemoc.course.fsm.xtext.FSM.State");
-							afterParserOrEnumRuleCall();
-						}
-					)
-				)
-			)*
-			otherlv_10='}'
-			{
-				newLeafNode(otherlv_10, grammarAccess.getFiniteStateMachineAccess().getRightCurlyBracketKeyword_5_4());
+							(
+								(
+									{
+										newCompositeNode(grammarAccess.getFiniteStateMachineAccess().getNameEStringParserRuleCall_0_1_0());
+									}
+									lv_name_2_0=ruleEString
+									{
+										if ($current==null) {
+											$current = createModelElementForParent(grammarAccess.getFiniteStateMachineRule());
+										}
+										set(
+											$current,
+											"name",
+											lv_name_2_0,
+											"org.gemoc.course.fsm.xtext.FSM.EString");
+										afterParserOrEnumRuleCall();
+									}
+								)
+							)
+							otherlv_3='{'
+							{
+								newLeafNode(otherlv_3, grammarAccess.getFiniteStateMachineAccess().getLeftCurlyBracketKeyword_0_2());
+							}
+							(
+								(
+									(
+										{
+											newCompositeNode(grammarAccess.getFiniteStateMachineAccess().getStatesStateParserRuleCall_0_3_0_0());
+										}
+										lv_states_4_0=ruleState
+										{
+											if ($current==null) {
+												$current = createModelElementForParent(grammarAccess.getFiniteStateMachineRule());
+											}
+											add(
+												$current,
+												"states",
+												lv_states_4_0,
+												"org.gemoc.course.fsm.xtext.FSM.State");
+											afterParserOrEnumRuleCall();
+										}
+									)
+								)
+								(
+									(
+										{
+											newCompositeNode(grammarAccess.getFiniteStateMachineAccess().getStatesStateParserRuleCall_0_3_1_0());
+										}
+										lv_states_5_0=ruleState
+										{
+											if ($current==null) {
+												$current = createModelElementForParent(grammarAccess.getFiniteStateMachineRule());
+											}
+											add(
+												$current,
+												"states",
+												lv_states_5_0,
+												"org.gemoc.course.fsm.xtext.FSM.State");
+											afterParserOrEnumRuleCall();
+										}
+									)
+								)*
+							)?
+							))
+				{ 
+					getUnorderedGroupHelper().returnFromSelection(grammarAccess.getFiniteStateMachineAccess().getUnorderedGroup());
+				}
+			)
+		)|
+		(
+			{getUnorderedGroupHelper().canSelect(grammarAccess.getFiniteStateMachineAccess().getUnorderedGroup(), 1)}?=>(
+				{
+					getUnorderedGroupHelper().select(grammarAccess.getFiniteStateMachineAccess().getUnorderedGroup(), 1);
+				}
+							({true}?=>(otherlv_6='}'
+							{
+								newLeafNode(otherlv_6, grammarAccess.getFiniteStateMachineAccess().getRightCurlyBracketKeyword_1());
+							}
+							))
+				{ 
+					getUnorderedGroupHelper().returnFromSelection(grammarAccess.getFiniteStateMachineAccess().getUnorderedGroup());
+				}
+			)
+		)
+				)+
+				{getUnorderedGroupHelper().canLeave(grammarAccess.getFiniteStateMachineAccess().getUnorderedGroup())}?
+			)
+		)
+			{ 
+			  getUnorderedGroupHelper().leave(grammarAccess.getFiniteStateMachineAccess().getUnorderedGroup());
 			}
-		)?
-		otherlv_11='}'
-		{
-			newLeafNode(otherlv_11, grammarAccess.getFiniteStateMachineAccess().getRightCurlyBracketKeyword_6());
-		}
 	)
 ;
 
@@ -211,16 +208,30 @@ ruleState returns [EObject current=null]
 					$current);
 			}
 		)
-		otherlv_1='State'
+		(
+			(
+				lv_isInitialState_1_0='initial'
+				{
+					newLeafNode(lv_isInitialState_1_0, grammarAccess.getStateAccess().getIsInitialStateInitialKeyword_1_0());
+				}
+				{
+					if ($current==null) {
+						$current = createModelElement(grammarAccess.getStateRule());
+					}
+					setWithLastConsumed($current, "isInitialState", true, "initial");
+				}
+			)
+		)?
+		otherlv_2='state'
 		{
-			newLeafNode(otherlv_1, grammarAccess.getStateAccess().getStateKeyword_1());
+			newLeafNode(otherlv_2, grammarAccess.getStateAccess().getStateKeyword_2());
 		}
 		(
 			(
 				{
-					newCompositeNode(grammarAccess.getStateAccess().getNameEStringParserRuleCall_2_0());
+					newCompositeNode(grammarAccess.getStateAccess().getNameEStringParserRuleCall_3_0());
 				}
-				lv_name_2_0=ruleEString
+				lv_name_3_0=ruleEString
 				{
 					if ($current==null) {
 						$current = createModelElementForParent(grammarAccess.getStateRule());
@@ -228,25 +239,36 @@ ruleState returns [EObject current=null]
 					set(
 						$current,
 						"name",
-						lv_name_2_0,
+						lv_name_3_0,
 						"org.gemoc.course.fsm.xtext.FSM.EString");
 					afterParserOrEnumRuleCall();
 				}
 			)
 		)
-		otherlv_3='{'
-		{
-			newLeafNode(otherlv_3, grammarAccess.getStateAccess().getLeftCurlyBracketKeyword_3());
-		}
 		(
-			otherlv_4='outgoingTransitions'
+			otherlv_4='{'
 			{
-				newLeafNode(otherlv_4, grammarAccess.getStateAccess().getOutgoingTransitionsKeyword_4_0());
+				newLeafNode(otherlv_4, grammarAccess.getStateAccess().getLeftCurlyBracketKeyword_4_0());
 			}
-			otherlv_5='{'
-			{
-				newLeafNode(otherlv_5, grammarAccess.getStateAccess().getLeftCurlyBracketKeyword_4_1());
-			}
+			(
+				(
+					{
+						newCompositeNode(grammarAccess.getStateAccess().getOutgoingTransitionsTransitionParserRuleCall_4_1_0());
+					}
+					lv_outgoingTransitions_5_0=ruleTransition
+					{
+						if ($current==null) {
+							$current = createModelElementForParent(grammarAccess.getStateRule());
+						}
+						add(
+							$current,
+							"outgoingTransitions",
+							lv_outgoingTransitions_5_0,
+							"org.gemoc.course.fsm.xtext.FSM.Transition");
+						afterParserOrEnumRuleCall();
+					}
+				)
+			)
 			(
 				(
 					{
@@ -265,41 +287,126 @@ ruleState returns [EObject current=null]
 						afterParserOrEnumRuleCall();
 					}
 				)
-			)
-			(
-				otherlv_7=','
-				{
-					newLeafNode(otherlv_7, grammarAccess.getStateAccess().getCommaKeyword_4_3_0());
-				}
-				(
-					(
-						{
-							newCompositeNode(grammarAccess.getStateAccess().getOutgoingTransitionsTransitionParserRuleCall_4_3_1_0());
-						}
-						lv_outgoingTransitions_8_0=ruleTransition
-						{
-							if ($current==null) {
-								$current = createModelElementForParent(grammarAccess.getStateRule());
-							}
-							add(
-								$current,
-								"outgoingTransitions",
-								lv_outgoingTransitions_8_0,
-								"org.gemoc.course.fsm.xtext.FSM.Transition");
-							afterParserOrEnumRuleCall();
-						}
-					)
-				)
 			)*
-			otherlv_9='}'
+			otherlv_7='}'
 			{
-				newLeafNode(otherlv_9, grammarAccess.getStateAccess().getRightCurlyBracketKeyword_4_4());
+				newLeafNode(otherlv_7, grammarAccess.getStateAccess().getRightCurlyBracketKeyword_4_3());
 			}
 		)?
-		otherlv_10='}'
+	)
+;
+
+// Entry rule entryRuleTransition
+entryRuleTransition returns [EObject current=null]:
+	{ newCompositeNode(grammarAccess.getTransitionRule()); }
+	iv_ruleTransition=ruleTransition
+	{ $current=$iv_ruleTransition.current; }
+	EOF;
+
+// Rule Transition
+ruleTransition returns [EObject current=null]
+@init {
+	enterRule();
+}
+@after {
+	leaveRule();
+}:
+	(
+		otherlv_0='->'
 		{
-			newLeafNode(otherlv_10, grammarAccess.getStateAccess().getRightCurlyBracketKeyword_5());
+			newLeafNode(otherlv_0, grammarAccess.getTransitionAccess().getHyphenMinusGreaterThanSignKeyword_0());
 		}
+		(
+			(
+				{
+					if ($current==null) {
+						$current = createModelElement(grammarAccess.getTransitionRule());
+					}
+				}
+				{
+					newCompositeNode(grammarAccess.getTransitionAccess().getTargetStateCrossReference_1_0());
+				}
+				ruleEString
+				{
+					afterParserOrEnumRuleCall();
+				}
+			)
+		)
+		otherlv_2='['
+		{
+			newLeafNode(otherlv_2, grammarAccess.getTransitionAccess().getLeftSquareBracketKeyword_2());
+		}
+		(
+			(
+				{
+					newCompositeNode(grammarAccess.getTransitionAccess().getInputEStringParserRuleCall_3_0());
+				}
+				lv_input_3_0=ruleEString
+				{
+					if ($current==null) {
+						$current = createModelElementForParent(grammarAccess.getTransitionRule());
+					}
+					set(
+						$current,
+						"input",
+						lv_input_3_0,
+						"org.gemoc.course.fsm.xtext.FSM.EString");
+					afterParserOrEnumRuleCall();
+				}
+			)
+		)
+		(
+			otherlv_4='|'
+			{
+				newLeafNode(otherlv_4, grammarAccess.getTransitionAccess().getVerticalLineKeyword_4_0());
+			}
+			(
+				(
+					{
+						newCompositeNode(grammarAccess.getTransitionAccess().getOutputEStringParserRuleCall_4_1_0());
+					}
+					lv_output_5_0=ruleEString
+					{
+						if ($current==null) {
+							$current = createModelElementForParent(grammarAccess.getTransitionRule());
+						}
+						set(
+							$current,
+							"output",
+							lv_output_5_0,
+							"org.gemoc.course.fsm.xtext.FSM.EString");
+						afterParserOrEnumRuleCall();
+					}
+				)
+			)
+		)?
+		otherlv_6=']'
+		{
+			newLeafNode(otherlv_6, grammarAccess.getTransitionAccess().getRightSquareBracketKeyword_5());
+		}
+		otherlv_7=':'
+		{
+			newLeafNode(otherlv_7, grammarAccess.getTransitionAccess().getColonKeyword_6());
+		}
+		(
+			(
+				{
+					newCompositeNode(grammarAccess.getTransitionAccess().getNameEStringParserRuleCall_7_0());
+				}
+				lv_name_8_0=ruleEString
+				{
+					if ($current==null) {
+						$current = createModelElementForParent(grammarAccess.getTransitionRule());
+					}
+					set(
+						$current,
+						"name",
+						lv_name_8_0,
+						"org.gemoc.course.fsm.xtext.FSM.EString");
+					afterParserOrEnumRuleCall();
+				}
+			)
+		)
 	)
 ;
 
@@ -333,126 +440,6 @@ ruleEString returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()
 		}
 		{
 			newLeafNode(this_ID_1, grammarAccess.getEStringAccess().getIDTerminalRuleCall_1());
-		}
-	)
-;
-
-// Entry rule entryRuleTransition
-entryRuleTransition returns [EObject current=null]:
-	{ newCompositeNode(grammarAccess.getTransitionRule()); }
-	iv_ruleTransition=ruleTransition
-	{ $current=$iv_ruleTransition.current; }
-	EOF;
-
-// Rule Transition
-ruleTransition returns [EObject current=null]
-@init {
-	enterRule();
-}
-@after {
-	leaveRule();
-}:
-	(
-		otherlv_0='Transition'
-		{
-			newLeafNode(otherlv_0, grammarAccess.getTransitionAccess().getTransitionKeyword_0());
-		}
-		(
-			(
-				{
-					newCompositeNode(grammarAccess.getTransitionAccess().getNameEStringParserRuleCall_1_0());
-				}
-				lv_name_1_0=ruleEString
-				{
-					if ($current==null) {
-						$current = createModelElementForParent(grammarAccess.getTransitionRule());
-					}
-					set(
-						$current,
-						"name",
-						lv_name_1_0,
-						"org.gemoc.course.fsm.xtext.FSM.EString");
-					afterParserOrEnumRuleCall();
-				}
-			)
-		)
-		otherlv_2='{'
-		{
-			newLeafNode(otherlv_2, grammarAccess.getTransitionAccess().getLeftCurlyBracketKeyword_2());
-		}
-		(
-			otherlv_3='input'
-			{
-				newLeafNode(otherlv_3, grammarAccess.getTransitionAccess().getInputKeyword_3_0());
-			}
-			(
-				(
-					{
-						newCompositeNode(grammarAccess.getTransitionAccess().getInputEStringParserRuleCall_3_1_0());
-					}
-					lv_input_4_0=ruleEString
-					{
-						if ($current==null) {
-							$current = createModelElementForParent(grammarAccess.getTransitionRule());
-						}
-						set(
-							$current,
-							"input",
-							lv_input_4_0,
-							"org.gemoc.course.fsm.xtext.FSM.EString");
-						afterParserOrEnumRuleCall();
-					}
-				)
-			)
-		)?
-		(
-			otherlv_5='output'
-			{
-				newLeafNode(otherlv_5, grammarAccess.getTransitionAccess().getOutputKeyword_4_0());
-			}
-			(
-				(
-					{
-						newCompositeNode(grammarAccess.getTransitionAccess().getOutputEStringParserRuleCall_4_1_0());
-					}
-					lv_output_6_0=ruleEString
-					{
-						if ($current==null) {
-							$current = createModelElementForParent(grammarAccess.getTransitionRule());
-						}
-						set(
-							$current,
-							"output",
-							lv_output_6_0,
-							"org.gemoc.course.fsm.xtext.FSM.EString");
-						afterParserOrEnumRuleCall();
-					}
-				)
-			)
-		)?
-		otherlv_7='target'
-		{
-			newLeafNode(otherlv_7, grammarAccess.getTransitionAccess().getTargetKeyword_5());
-		}
-		(
-			(
-				{
-					if ($current==null) {
-						$current = createModelElement(grammarAccess.getTransitionRule());
-					}
-				}
-				{
-					newCompositeNode(grammarAccess.getTransitionAccess().getTargetStateCrossReference_6_0());
-				}
-				ruleEString
-				{
-					afterParserOrEnumRuleCall();
-				}
-			)
-		)
-		otherlv_9='}'
-		{
-			newLeafNode(otherlv_9, grammarAccess.getTransitionAccess().getRightCurlyBracketKeyword_7());
 		}
 	)
 ;

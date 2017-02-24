@@ -31,7 +31,6 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * </p>
  * <ul>
  *   <li>{@link fsm.impl.FiniteStateMachineImpl#getStates <em>States</em>}</li>
- *   <li>{@link fsm.impl.FiniteStateMachineImpl#getInitialState <em>Initial State</em>}</li>
  *   <li>{@link fsm.impl.FiniteStateMachineImpl#getName <em>Name</em>}</li>
  * </ul>
  *
@@ -47,16 +46,6 @@ public class FiniteStateMachineImpl extends MinimalEObjectImpl.Container impleme
 	 * @ordered
 	 */
 	protected EList<State> states;
-
-	/**
-	 * The cached value of the '{@link #getInitialState() <em>Initial State</em>}' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getInitialState()
-	 * @generated
-	 * @ordered
-	 */
-	protected State initialState;
 
 	/**
 	 * The default value of the '{@link #getName() <em>Name</em>}' attribute.
@@ -114,44 +103,6 @@ public class FiniteStateMachineImpl extends MinimalEObjectImpl.Container impleme
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public State getInitialState() {
-		if (initialState != null && initialState.eIsProxy()) {
-			InternalEObject oldInitialState = (InternalEObject)initialState;
-			initialState = (State)eResolveProxy(oldInitialState);
-			if (initialState != oldInitialState) {
-				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, FsmPackage.FINITE_STATE_MACHINE__INITIAL_STATE, oldInitialState, initialState));
-			}
-		}
-		return initialState;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public State basicGetInitialState() {
-		return initialState;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setInitialState(State newInitialState) {
-		State oldInitialState = initialState;
-		initialState = newInitialState;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, FsmPackage.FINITE_STATE_MACHINE__INITIAL_STATE, oldInitialState, initialState));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public String getName() {
 		return name;
 	}
@@ -192,9 +143,6 @@ public class FiniteStateMachineImpl extends MinimalEObjectImpl.Container impleme
 		switch (featureID) {
 			case FsmPackage.FINITE_STATE_MACHINE__STATES:
 				return getStates();
-			case FsmPackage.FINITE_STATE_MACHINE__INITIAL_STATE:
-				if (resolve) return getInitialState();
-				return basicGetInitialState();
 			case FsmPackage.FINITE_STATE_MACHINE__NAME:
 				return getName();
 		}
@@ -214,9 +162,6 @@ public class FiniteStateMachineImpl extends MinimalEObjectImpl.Container impleme
 				getStates().clear();
 				getStates().addAll((Collection<? extends State>)newValue);
 				return;
-			case FsmPackage.FINITE_STATE_MACHINE__INITIAL_STATE:
-				setInitialState((State)newValue);
-				return;
 			case FsmPackage.FINITE_STATE_MACHINE__NAME:
 				setName((String)newValue);
 				return;
@@ -235,9 +180,6 @@ public class FiniteStateMachineImpl extends MinimalEObjectImpl.Container impleme
 			case FsmPackage.FINITE_STATE_MACHINE__STATES:
 				getStates().clear();
 				return;
-			case FsmPackage.FINITE_STATE_MACHINE__INITIAL_STATE:
-				setInitialState((State)null);
-				return;
 			case FsmPackage.FINITE_STATE_MACHINE__NAME:
 				setName(NAME_EDEFAULT);
 				return;
@@ -255,8 +197,6 @@ public class FiniteStateMachineImpl extends MinimalEObjectImpl.Container impleme
 		switch (featureID) {
 			case FsmPackage.FINITE_STATE_MACHINE__STATES:
 				return states != null && !states.isEmpty();
-			case FsmPackage.FINITE_STATE_MACHINE__INITIAL_STATE:
-				return initialState != null;
 			case FsmPackage.FINITE_STATE_MACHINE__NAME:
 				return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
 		}

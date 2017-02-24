@@ -8,12 +8,12 @@
   <genPackages prefix="Fsm" disposableProviderFactory="true" ecorePackage="fsm.ecore#/">
     <genClasses ecoreClass="fsm.ecore#//FiniteStateMachine">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fsm.ecore#//FiniteStateMachine/states"/>
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference fsm.ecore#//FiniteStateMachine/initialState"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute fsm.ecore#//FiniteStateMachine/name"/>
     </genClasses>
     <genClasses ecoreClass="fsm.ecore#//State">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fsm.ecore#//State/outgoingTransitions"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute fsm.ecore#//State/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute fsm.ecore#//State/isInitialState"/>
     </genClasses>
     <genClasses ecoreClass="fsm.ecore#//Transition">
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference fsm.ecore#//Transition/target"/>
